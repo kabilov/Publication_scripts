@@ -6,8 +6,6 @@
 
 set -eo pipefail
 
-#usearch="/opt/Metagenomics/Usearch/Usearch/usearch11.0.667_i86linux64"
-
 cutadapt -g GACTCGAGTCGACATCGA -a CAGCCGTATGGATTTAACACG -G CGTGTTAAATCCATACGGCTG -A TCGATGTCGACTCGAGTC --report=minimal --match-read-wildcards --cores=13 --trim-n --times=10 --discard-untrimmed --pair-filter=both --overlap=7 --minimum-length=10 -o trimmed1_R1.fq -p trimmed1_R2.fq $1 $2
 cutadapt -g CGTGTTAAATCCATACGGCTG -a TCGATGTCGACTCGAGTC -G GACTCGAGTCGACATCGA -A CAGCCGTATGGATTTAACACG --report=minimal --match-read-wildcards --cores=13 --trim-n --times=10 --discard-untrimmed --pair-filter=both --overlap=7 --minimum-length=10 -o trimmed2_R1.fq -p trimmed2_R2.fq $1 $2
 
